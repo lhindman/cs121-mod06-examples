@@ -1,8 +1,14 @@
 {
 	"folders": [
 		{
-			"path": "MyApp"
+			"path": "GameOfDice"
 		},
+		{
+			"path": "StaticMethods"
+		},
+		{
+			"path": "CupOfDice"
+		}
 	],
 	"settings": {
 		"files.exclude": {
