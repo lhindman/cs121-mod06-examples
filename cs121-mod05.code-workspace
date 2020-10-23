@@ -11,6 +11,18 @@
 		},
 		{
 			"path": "NamedDie"
+		},
+		{
+			"path": "SnakeEyes"
+		},
+		{
+			"path": "CountFlips"
+		},
+		{
+			"path": "Transactions"
+		},
+		{
+			"path": "SloganCounter"
 		}
 	],
 	"settings": {
