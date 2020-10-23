@@ -9,15 +9,13 @@ public class GameOfDice {
         System.out.println("Welcome to Game of Dice!");
 
         Die die1 = new Die();
-        Die die2 = new Die();
+        Die die2 = new Die(64);
 
         die1.roll();
         die2.roll();
 
-
         System.out.println(die1.toString());
         System.out.println(die2);
-
 
         /* Get the max of the two die */
         Die maxDie;
