@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "CupOfDice"
+		},
+		{
+			"path": "NamedDie"
 		}
 	],
 	"settings": {
