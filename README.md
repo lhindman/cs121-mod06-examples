@@ -76,72 +76,28 @@ In the deeper look videos, we discussed that when a class *implements* an interf
     This is a result of using the *this* operator to access faceValue.  The *this* operator means, THIS instance and since it is no longer an instance variable, it is no longer appropriate to access faceValue using the *this* operator.  Instead, replace all occurrances of **this.faceValue** with **Die.faceValue** and run the program again. Did this resolve the compilation warnings?
 
 
-## File Parsing Experimentation
-1. Open *FileEcho.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Reading a file line-by-line is a common way to process text data.  To help reinforce this idea, use the following code to modify the existing display loop so that it prepends line numbers to each line of text before displaying it in the console. Experiment by using it to read a number of files, including FileEcho.java. Compare the line numbers in VSCode against those reported by FileEcho.  Record your observations.
+## JavaDoc Experimentation (CupOfDice)
+JavaDoc comments are incredibly useful when developing Java programs. They provide a way to describe not only what a program does, but also what the input parameters are and return values. Most modern IDEs have built in mechanisms that process these comments and display them as tooltips in the IDE as you are coding. However, these comments must follow the exact format described in the Style Guide in order for them to be processed correctly.
+1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
+    - Add the following JavaDoc comment to the shake() method in the CupOfDice class.  Then hover the mouse cursor over the call to shake() in the CupOfDiceDriver class and observe what is displayed.
     ```
-    int lineNumber = 1;
-    while (fileScan.hasNextLine()) {
-        String line = fileScan.nextLine();
-
-        System.out.printf("%5d | %s\n",lineNumber,line);
-
-        lineNumber++;
-    }
+    /**
+     * Call the roll() method on each die in the cup.
+     */
+    public void shake() {
+       ...
     ```
-           
-1. Open *CSVParser.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Students often struggle with the CSVParser example because it uses two different types of Scanner objects, one to scan the File line-by-line and other other to process each individual line to extract the data fields. To help reienforce this idea of processing the CSV file line, use the following code to modify the existing loop to output line numbers preceeding the unprocessed CSV data before displaying it in the console.
+    
+    - Add the following JavaDoc comment to the matching constructor in the CupOfDice class.  Then hover the mouse cursor over the call to the CupOfDice constructor in the CupOfDiceDriver class and observe what is displayed.
     ```
-        /* 3. Create a loop to read each line from the Scanner */
-        int lineNumber = 1;
-        while(bobsScanner.hasNextLine()) {
-            String line = bobsScanner.nextLine();
-
-            /* 4. Print each line */
-            System.out.printf("Processing Line %3d: %s\n",lineNumber,line);
-            lineNumber++;
-
-            ...
-    ```
-    - When working with CSV data files, each line of the file contains *data fields* that are separate by commas. Modify the print statements as shown below, replacing the data labels with their cooresponding field number. Record your observations.
-    ```
-	/* 7. Print each song */
-    System.out.println("**************************");
-    System.out.println("CSV Field 1:" + artist);
-    System.out.println("CSV Field 2:" + album);
-    System.out.println("CSV Field 3: " + title);
-    System.out.println("CSV Field 4: " + duration);
-    System.out.println("**************************");
+    /**
+     * Instantiate a new ArrayList of Die objects. Instantiate the
+     *    specified number of dice (numDice), each with the specified
+     *    number of size (numSides) and add them to the ArrayList.
+     * @param numDice Number of dice in the cup
+     * @param numSides Number of sides on each Die.
+     */
+    public CupOfDice(int numDice, int numSides) {
     ```
 
-    - Revert the code changes made in the previous steps.  Click the *Source Control* icon then select *CSVParser.java* from the list of changes. Hover over the icons beside the filenames to find the icon labelled **Discard Changes**, then click it. This will revert all the code changes to CSVParser.java back to the last commit.  Please be careful if you choose to use this functionality when working in your lab activities.
-    - The order that we read the fields using the scanner matters.  We know that the artist is the first field, so we assign the string value of the first call to *next()* to a variable called **artist**.  We know that the title is the third field so we assign the value returned by the third call to *next()* to **title**.  Modify the field extraction code as shown below, swapping the artist and title lines, then run the program.  What has changed in the output?  Why?
-    ```
-    /* 6. Extract the individual fields from each line */
-    String title = bobsLineScanner.next();
-    String album = bobsLineScanner.next();
-    String artist = bobsLineScanner.next();
-    int duration = bobsLineScanner.nextInt();
-    ```
-    - Often times there are more fields than we need in the CSV data and we only want to work with a single field.  To do this, we can use a while loop to step through each field in the line and a filter value to allow us to work with specific fields. Modify the while loops as shown in the code below to enable filtering the output to a specified field. Experiment with setting the field filter to values of 1 through 5 record the values that are output for each (artist, album, title, duration).
-    ```
-	/* 3. Create a loop to read each line from the Scanner */
-	int fieldFilter = 3;
-	while(bobsScanner.hasNextLine()) {
-		String line = bobsScanner.nextLine();
-
-		Scanner lineScanner = new Scanner (line);
-		lineScanner.useDelimiter(",");
-
-		int fieldCounter = 1;
-		while (lineScanner.hasNext()) {
-			String field = lineScanner.next();
-			if(fieldCounter == fieldFilter) {
-				System.out.println("CSV Field " + fieldCounter + ": " + field);
-			}
-			fieldCounter++;
-		}
-		lineScanner.close();
-	}
-   ```
+    - Using the Style Guide as a reference, add both class and method JavaDoc comments to both the Die and CupOfDice classes. Experiment with how and where these comments are displayed within the VSCode IDE and record your observations.
