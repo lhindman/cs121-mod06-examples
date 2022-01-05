@@ -77,7 +77,7 @@ In the deeper look videos, we discussed that when a class *implements* an interf
 
 
 ## JavaDoc Experimentation (CupOfDice)
-JavaDoc comments are incredibly useful when developing Java programs. They provide a way to describe not only what a program does, but also what the input parameters are and return values. Most modern IDEs have built in mechanisms that process these comments and display them as tooltips in the IDE as you are coding. However, these comments must follow the exact format described in the Style Guide in order for them to be processed correctly.
+JavaDoc comments are incredibly useful when developing Java programs. They provide a way to describe not only what a program does, but also what the input parameters are and return values. Most modern IDEs have built in mechanisms that process these comments and display them as tooltips in the IDE as you are coding. However, these comments must follow the exact format described in the [Style Guide](https://docs.google.com/document/d/1LWbGQBKkApnNAzzgwOSvRM03DmhYWx5yEfecT2WXfjI/edit?usp=sharing) in order for them to be processed correctly.
 1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
     - Add the following JavaDoc comment to the shake() method in the CupOfDice class.  Then hover the mouse cursor over the call to shake() in the CupOfDiceDriver class and observe what is displayed.
     ```
@@ -98,6 +98,7 @@ JavaDoc comments are incredibly useful when developing Java programs. They provi
      * @param numSides Number of sides on each Die.
      */
     public CupOfDice(int numDice, int numSides) {
+       ...
     ```
 
-    - Using the Style Guide as a reference, add both class and method JavaDoc comments to both the Die and CupOfDice classes. Experiment with how and where these comments are displayed within the VSCode IDE and record your observations.
+    - Using the [Style Guide](https://docs.google.com/document/d/1LWbGQBKkApnNAzzgwOSvRM03DmhYWx5yEfecT2WXfjI/edit?usp=sharing) as a reference, add both class and method JavaDoc comments to both the Die and CupOfDice classes. Experiment with how and where these comments are displayed within the VSCode IDE and record your observations.
