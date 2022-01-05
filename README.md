@@ -25,7 +25,7 @@ Steps to Clone Examples
  
     - With the above modifications still in place, change the visibility of the balance instance variable back to private and run the program again.  What is the result and why?
 
-## Interface Experimentation
+## Interface Experimentation (GameOfDice)
 In the deeper look videos, we discussed that when a class *implements* an interface they are guaranteeing that objects created from that class provide certain methods. Java check for this at compile time, but also provides the ***instanceof*** operator so that we can also check at runtime. Let's have some fun. :)
 1. Open *Die.java* and *GameOfDice.java*, read the code and run it to ensure it functions properly. Also study the contents of the interface defined in Rollable.java. Then work through each of the experiments below and record your observations.
     - Modify the main() method in GameOfDice.java to confirm at runtime that the Die object is Rollable as shown below. Are die1 and die2 in fact instances of the Rollable interface?
@@ -61,26 +61,20 @@ In the deeper look videos, we discussed that when a class *implements* an interf
 	public class Die implements Comparable<Die>{
     ```
       
-## ArrayList Experimentation
-1. Open *MyRainbow.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Add three additional color objects to the rainbow immediately after ORANGE, YELLOW and PINK are added. Run the program and record how how affect the result of the list size as well as where in the list your colors were added.  To make this easier to record, you may temporarily *comment out* the code in the *working with loops* section.
+## Static Instance Variable Experimentation (CupOfDice)
+1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
+    - Modify the faceValue instance variable in the Die class as shown below, making it static. Run the CupOfDiceDriver again and record the results.
     ```
-    rainbow.add(Color.GREEN);
-    rainbow.add(Color.BLUE);
-    rainbow.add(Color.BLACK);
+    private static int faceValue;
     ```
-    - Notice in the constructor for the Arraylist, we *tagged* our rainbow ArrayList with the **Color** class. Let's see what happens when we an object that is not of type Color. Use the code below to add a String to our rainbow and make of note of the line number where you add the String. To make this easier to record, you may temporarily *comment out* the code in the *working with loops* section. Attempt to run the program and student the java output (stack trace) carefully.  Notice that it not only tells you exactly what is wrong, but also the line where the issue is detected.  Record your observations.
-    ```
-    rainbow.add("Purple");
-    ```
+    - When an instance variable has the static modifier specified as we did above, the variable becomes a class variable instead of an instance variable. An instance variable has memory allocated with each object (instance of the class) to hold the data.  However, a class variable has memory allocated within the class itself and this memory shared, in essence becoming a single variable that is shared between all instances of the class. Think about how changing the faceValue to static changed its behavior and record whether this makes sense given your understanding of instance variables vs class variables.
 
-    - Revert the code changes made in the previous steps.  Click the *Source Control* icon then select *MyRainbow.java* from the list of changes. Hover over the icons beside the filenames to find the icon labelled **Discard Changes**, then click it. This will revert all the code changes to MyRainbow.java back to the last commit.  Please be careful if you choose to use this functionality when working in your lab activities.
-
-
-    - Modify the *rainbow.remove(0)* line as follows to intentionally remove a item that does not exist in the ArrayList, and make a note of the line number. Study the Java output (stacktrace) carefully noting the type of exception, the index value that cause the exception and the line number in MyRainbow where the exception was detected. Record your observations.
+    - After changing faceValue from an instance variable to a class variable, you likely noticed a number of warning messages similar to the following:
     ```
-    rainbow.remove(199);
+    The static field Die.faceValue should be accessed in a static way
     ```
+    This is a result of using the *this* operator to access faceValue.  The *this* operator means, THIS instance and since it is no longer an instance variable, it is no longer appropriate to access faceValue using the *this* operator.  Instead, replace all occurrances of **this.faceValue** with **Die.faceValue** and run the program again. Did this resolve the compilation warnings?
+
 
 ## File Parsing Experimentation
 1. Open *FileEcho.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
