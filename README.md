@@ -61,7 +61,7 @@ In the deeper look videos, we discussed that when a class *implements* an interf
 	public class Die implements Comparable<Die>{
     ```
       
-## Static Instance Variable Experimentation (CupOfDice)
+## Static Variable Experimentation (CupOfDice)
 1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
     - Modify the faceValue instance variable in the Die class as shown below, making it static. Run the CupOfDiceDriver again and record the results.
     ```
