@@ -10,47 +10,55 @@ Steps to Clone Examples
 4. Browse to the location in your development environment where you want to store the repostory and click Select Repository Location.
 5. When prompted, Open the repository then Open the workspace
 
-## Static Method Experimentation
-1. Open *StaticFun.java* and *Utility.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Add the following two static methods to Utility.java.  Study both methods carefully to understand what they are doing.
+## Class Basics Experimentation
+1. Open *Account.java* and *Transactions.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
+    - Visibility modifiers support the principle of encapsulation by restricting access to instance variables. Chance the visibility of the balance instance variable in the Account class from private to public. Then update Transactions.java with the code below to modify the account balance, bypassing the deposit() method entirely. Would this update to the account balance have been possible using the deposit() accessor method?  Record your observations.
     ```
-    public static void numDoubler1(int x) {
-        x = x * 2;
-    }
-
-    public static int numDoubler2(int x) {
-        x = x * 2;
-        return x;
-    }
+      double balance = acct2.deposit(75.25);
+      System.out.println("Mary's balance after deposit: " + balance);
+      System.out.println("Mary's balance after withdrawal: " + acct2.withdraw(480, 1.50));
+      
+      acct2.balance = -1000000;
+      System.out.println("Mary's balance after account hack: " acct2.getBalance());
+      
     ```
  
-    - Add the following code to the end of the main method in StaticFun.java. What effect do the calls to numDoubler1() and numDoubler2() have on the value of myNum?, why?  
+    - With the above modifications still in place, change the visibility of the balance instance variable back to private and run the program again.  What is the result and why?
+
+## Interface Experimentation
+In the deeper look videos, we discussed that when a class *implements* an interface they are guaranteeing that objects created from that class provide certain methods. Java check for this at compile time, but also provides the ***instanceof*** operator so that we can also check at runtime. Let's have some fun. :)
+1. Open *Die.java* and *GameOfDice.java*, read the code and run it to ensure it functions properly. Also study the contents of the interface defined in Rollable.java. Then work through each of the experiments below and record your observations.
+    - Modify the main() method in GameOfDice.java to confirm at runtime that the Die object is Rollable as shown below. Are die1 and die2 in fact instances of the Rollable interface?
     ```
-    int myNum = 2;
+	Die die1 = new Die();
+	if ( (die1 instanceof Rollable) == false) {
+	    System.out.println("Error: Object is not Rollable");
+	    System.exit(1);
+	}
 
-    Utility.numDoubler1(myNum);
-    System.out.println("Value of myNum after calling numDoubler1: " + myNum);
-
-    myNum = Utility.numDoubler2(myNum);
-    System.out.println("Value of myNum after calling numDoubler2: " + myNum);
+	Die die2 = new Die(64);
+	if ( (die2 instanceof Rollable) == false) {
+	    System.out.println("Error: Object is not Rollable");
+	    System.exit(1);
+	}
     ```
     
-1. Open *StaticFun.java* and *Utility.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Add the following static method to Utility.java.  To build successfully, don't forget to import the **java.awt.point** class. Study the method carefully to understand what it is doing.
+    - In addition to the Rollable interface, the Die class also implements the Comparable interface. Add the following code to the main() method of GameOfDice.java to check if the Die object is Comparable.
     ```
-    public static void pointDoubler(Point p) {
-        p.x = p.x * 2;
-        p.y = p.y * 2;
-    }
+	if ( (die1 instanceof Comparable) == false) {
+	    System.out.println("Error: Object is not Comparable");
+	    System.exit(1);
+	}
+
+	if ( (die2 instanceof Comparable) == false) {
+	    System.out.println("Error: Object is not Comparable");
+	    System.exit(1);
+	}
     ```
  
-    - Add the following code to the end of the main method in StaticFun.java. Were the values of x and y inside the Point object modified by the pointDoubler() method even though it doesn't have a return value? What is the difference between passing in an object as a argument to a method vs passing in a primitive data type such as an int?  
+    - Modify the Die class as shown below so that it no longer implements the rollable interface and run the program.  What is the result? 
     ```
-    Point myPoint = new Point(2,3);
-
-    System.out.println("Value of point before doubling: " + myPoint);
-    Utility.pointDoubler(myPoint);
-    System.out.println("Value of point after doubling: " + myPoint);
+	public class Die implements Comparable<Die>{
     ```
       
 ## ArrayList Experimentation
