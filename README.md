@@ -56,7 +56,7 @@ In the deeper look videos, we discussed that when a class *implements* an interf
 	}
     ```
  
-    - Modify the Die class as shown below so that it no longer implements the rollable interface and run the program.  What is the result? 
+    - Modify the Die class as shown below so that it no longer implements the Rollable interface and run the program. What is the result? The Die class still has a roll() method. Is that sufficient for it to be an instance of the Rollable or must it explicitly state that it implements the Rollable interface?
     ```
 	public class Die implements Comparable<Die>{
     ```
