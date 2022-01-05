@@ -10,7 +10,7 @@ Steps to Clone Examples
 4. Browse to the location in your development environment where you want to store the repostory and click Select Repository Location.
 5. When prompted, Open the repository then Open the workspace
 
-## Class Basics Experimentation
+## Encapsulation Experimentation
 1. Open *Account.java* and *Transactions.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
     - Visibility modifiers support the principle of encapsulation by restricting access to instance variables. Chance the visibility of the balance instance variable in the Account class from private to public. Then update Transactions.java with the code below to modify the account balance, bypassing the deposit() method entirely. Would this update to the account balance have been possible using the deposit() accessor method?  Record your observations.
     ```
