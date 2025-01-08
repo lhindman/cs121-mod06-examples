@@ -1,6 +1,9 @@
 {
 	"folders": [
 		{
+			"path": "ExperimentationGuide"
+		},
+		{
 			"path": "GameOfDice"
 		},
 		{
@@ -31,6 +34,7 @@
 			"**/.DS_Store": true,
 			"**/.placeholder": true,
 			"**/.vscode": true
-		}
+		},
+		"git.openRepositoryInParentFolders":"always"
 	}
 }
