@@ -27,6 +27,20 @@ Steps to Clone Examples
     ```
  
     - With the above modifications still in place, change the visibility of the balance instance variable back to private and run the program again.  What is the result and why?
+ 
+## Static Variable Experimentation (CupOfDice)
+1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
+    - Modify the faceValue instance variable in the Die class as shown below, making it static. Run the CupOfDiceDriver again and record the results.
+    ```
+    private static int faceValue;
+    ```
+    - When an instance variable has the static modifier specified as we did above, the variable becomes a class variable instead of an instance variable. An instance variable has memory allocated with each object (instance of the class) to hold the data.  However, a class variable has memory allocated within the class itself and this memory shared, in essence becoming a single variable that is shared between all instances of the class. Think about how changing the faceValue to static changed its behavior and record whether this makes sense given your understanding of instance variables vs class variables.
+
+    - After changing faceValue from an instance variable to a class variable, you likely noticed a number of warning messages similar to the following:
+    ```
+    The static field Die.faceValue should be accessed in a static way
+    ```
+    This is a result of using the *this* operator to access faceValue.  The *this* operator means, THIS instance and since it is no longer an instance variable, it is no longer appropriate to access faceValue using the *this* operator.  Instead, replace all occurrances of **this.faceValue** with **Die.faceValue** and run the program again. Did this resolve the compilation warnings?
 
 ## Interface Experimentation (GameOfDice)
 In the deeper look videos, we discussed that when a class *implements* an interface they are guaranteeing that objects created from that class provide certain methods. Java check for this at compile time, but also provides the ***instanceof*** operator so that we can also check at runtime. Let's have some fun. :)
@@ -63,21 +77,6 @@ In the deeper look videos, we discussed that when a class *implements* an interf
     ```
 	public class Die implements Comparable<Die>{
     ```
-      
-## Static Variable Experimentation (CupOfDice)
-1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Modify the faceValue instance variable in the Die class as shown below, making it static. Run the CupOfDiceDriver again and record the results.
-    ```
-    private static int faceValue;
-    ```
-    - When an instance variable has the static modifier specified as we did above, the variable becomes a class variable instead of an instance variable. An instance variable has memory allocated with each object (instance of the class) to hold the data.  However, a class variable has memory allocated within the class itself and this memory shared, in essence becoming a single variable that is shared between all instances of the class. Think about how changing the faceValue to static changed its behavior and record whether this makes sense given your understanding of instance variables vs class variables.
-
-    - After changing faceValue from an instance variable to a class variable, you likely noticed a number of warning messages similar to the following:
-    ```
-    The static field Die.faceValue should be accessed in a static way
-    ```
-    This is a result of using the *this* operator to access faceValue.  The *this* operator means, THIS instance and since it is no longer an instance variable, it is no longer appropriate to access faceValue using the *this* operator.  Instead, replace all occurrances of **this.faceValue** with **Die.faceValue** and run the program again. Did this resolve the compilation warnings?
-
 
 ## JavaDoc Experimentation (CupOfDice)
 JavaDoc comments are incredibly useful when developing Java programs. They provide a way to describe not only what a program does, but also what the input parameters are and return values. Most modern IDEs have built in mechanisms that process these comments and display them as tooltips in the IDE as you are coding. However, these comments must follow the exact format described in the [Style Guide](https://docs.google.com/document/d/1LWbGQBKkApnNAzzgwOSvRM03DmhYWx5yEfecT2WXfjI/edit?usp=sharing) in order for them to be processed correctly.
