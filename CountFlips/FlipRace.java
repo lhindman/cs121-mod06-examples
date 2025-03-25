@@ -13,7 +13,7 @@ public class FlipRace
     */
    public static void main (String[] args)
    {
-      final int GOAL = 6;
+      final int GOAL = 3;
       int count1 = 0, count2 = 0;
       Coin coin1 = new Coin(), coin2 = new Coin();
 
