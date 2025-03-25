@@ -20,8 +20,8 @@ public class Die
     */
    public Die()
    {
-      rand = new Random();
-      faceValue = 1;
+      this.rand = new Random();
+      this.faceValue = 1;
    }
 
    /**
@@ -31,8 +31,8 @@ public class Die
    public int roll()
    {
       //faceValue = (int)(Math.random() * MAX) + 1;
-      faceValue = rand.nextInt(MAX) + 1;
-      return faceValue;
+      this.faceValue = rand.nextInt(MAX) + 1;
+      return this.faceValue;
    }
 
    /**
@@ -45,7 +45,7 @@ public class Die
    public void setFaceValue (int value)
    {
       if (value > 0 && value <= MAX) {
-         faceValue = value;
+         this.faceValue = value;
       }
    }
 
@@ -55,7 +55,7 @@ public class Die
     */
    public int getFaceValue()
    {
-       return faceValue;
+       return this.faceValue;
    }
 
    /**
@@ -63,7 +63,7 @@ public class Die
     */
    public String toString()
    {
-      String result = "Die [faceValue = " + faceValue + "]";
+      String result = "Die [faceValue = " + this.faceValue + "]";
       return result;
    }
 }
