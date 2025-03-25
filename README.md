@@ -28,9 +28,9 @@ Steps to Clone Examples
  
     - With the above modifications still in place, change the visibility of the balance instance variable back to private and run the program again.  What is the result and why?
  
-## Static Variable Experimentation (CupOfDice)
-1. Open *Die.java*, *CupOfDice.java* and *CupOfDiceDriver.java* read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
-    - Modify the faceValue instance variable in the Die class as shown below, making it static. Run the CupOfDiceDriver again and record the results.
+## Static Variable Experimentation (SnakeEyes)
+1. Open *Die.java* and *SnakeEyes.java*, read the code and run it to ensure it functions properly.  Then work through each of the experiments below and record your observations.
+    - Modify the faceValue instance variable in the Die class as shown below, making it static. Run the SnakeEyes driver again and record the results.
     ```
     private static int faceValue;
     ```
